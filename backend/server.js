@@ -4,7 +4,7 @@ const Groq = require("groq-sdk");
 const axios = require("axios");
 const path = require("path");
 const md5 = require("md5");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: process.env.CORS_ORIGIN || true,
     credentials: true,
   })
 );
@@ -33,7 +33,9 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/Main.html"));
 });
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY || "placeholder",
+});
 
 app.post("/api/generate", async (req, res) => {
   try {
@@ -157,7 +159,6 @@ app.post("/api/convai", async (req, res) => {
         },
       }
     );
-    console.log(`Successfully called Convai API with key: ${apiKey}`); // 打印成功的 API 密钥
     res.json(response.data);
   } catch (error) {
     console.error("Error in /api/convai:", error);

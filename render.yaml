@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ecoecho
+    runtime: node
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: CONVAI_API_KEY
+        sync: false
+      - key: Google_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production

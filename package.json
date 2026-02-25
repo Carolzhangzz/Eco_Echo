@@ -2,11 +2,15 @@
   "name": "ai-game",
   "version": "1.0.0",
   "description": "## Setup and Running",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
     "start:backend": "node backend/server.js",
     "start:frontend": "http-server frontend -p 8080",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [],
   "author": "",

@@ -18,8 +18,8 @@ To familiarize yourself with the game mechanics, check out the gameplay instruct
 
 ## Running the Game
 
-You can start playing *EcoEcho* by following the link below:  
-[Open the Game](https://ecoecho.duckdns.org/)  
+You can start playing *EcoEcho* by following the link below:
+[Open the Game](https://ecoecho.onrender.com)
 
 
 # Key Features
