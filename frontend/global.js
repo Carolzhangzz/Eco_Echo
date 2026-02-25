@@ -1,3 +1,9 @@
+// Determine the base path to frontend root from global.js script location
+const _frontendBasePath = (() => {
+  const el = document.querySelector('script[src$="global.js"]');
+  return el ? el.getAttribute('src').replace('global.js', '') : './';
+})();
+
 let usedItems = {};
 
 // 在全局范围内定义一个数组来存储玩家的输入历史
@@ -672,7 +678,7 @@ function resetGame() {
   //清空语言
   clearLanguage();
 
-  window.location.href = "/Main.html";
+  window.location.href = _frontendBasePath + "Main.html";
 }
 
 // 全局背包系统
