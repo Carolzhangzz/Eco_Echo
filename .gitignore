@@ -1,2 +1,5 @@
 # 忽略 .env 文件
 /backend/.env
+
+# Dependencies
+node_modules/
